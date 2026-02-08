@@ -1,0 +1,86 @@
+h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium';
+    font-size: 50px;
+}
+
+body {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+    color: black;
+    background-color: #fefefe;
+
+
+}
+
+
+
+#no-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fefefe;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium';
+}
+
+
+#yes-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fefefe;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium';
+}
+
+
+#yes-button:hover {
+    background-color: rgba(49, 51, 52, 0.121);
+}
+#no-button:hover {
+    background-color: rgba(49, 51, 52, 0.121);
+}
+
+.play-again-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Creepster', cursive;
+    background-color: black;
+    color: white;
+
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-again-button:hover {
+    color: #4e1515;
+    border: #232422;
+}
+
+a {
+    color:rgb(0, 0, 0);
+}
+
+footer{
+    text-align: center;
+    margin: 50px;
+    font-size: 10px;
+}
