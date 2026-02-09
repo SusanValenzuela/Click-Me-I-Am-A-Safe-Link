@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maybe Next Time!</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <div class="no-container">
+        <h1 class="glitch">Game Over</h1>
+        <img src="images/FeddyFatBear.gif" alt="BearScare" />
+        
+        <p>Oops.. I understand we all make mistakes...</p>
+        <p>Let's play again</p>
+        <button class="play-again-button" id="retryBtn">Retry</button>
+    </div>
+
+    <!-- Audio for page load -->
+    <audio id="no-page-sound" src="sounds/no-sound.mp3" preload="auto"></audio>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        const sound = document.getElementById('no-page-sound');
+        sound.volume = 1;
+        sound.play().catch(() => {
+            console.log("Autoplay blocked, user needs to interact first.");
+        });
+        });
+        const retryBtn = document.getElementById('retryBtn');
+
+        retryBtn.addEventListener('click', () => {
+            localStorage.setItem('retryClicked', 'true');
+            location.href = 'index.html';
+        });
+
+
+    </script>
+</body>
+</html>

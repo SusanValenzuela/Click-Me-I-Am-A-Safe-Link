@@ -1,33 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Will You Be My Valentine?</title>
-
-        <link rel="stylesheet" href="./css/site.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="css/site.css">
+    
     </head>
     <body>
-        <header>
-        </header>
-        <section>
-            <h1></h1>
-            <p>I have an important question..</p>
-            <span>Will you be my Valentine?</span>
-            <div></div>
-            <div></div>
-            <div>   
-                <button id="yes-button">Yes</button>
-                <button id="no-button">No</button>
-            </div>
-            <button id="restart-button" style="display: none;">Restart Quiz</button>
+    <main id="container">
+        <h1 >Hey Bri!</h1>
+        <p id="lead">I have an important question...</p>
+        <span id="question-text">Will you be my Valentine?</span>
+        <div>
+        <button id="yes-button" class="btn">Yes</button>
+        <button id="no-button" class="btn">No</button>
+        </div>
+    </main>
 
-        </section>
-        <footer>
-            Susan Valenzuela © 2026
-        </footer>
-        <audio id="no-sound" src="./sounds/no-sound.mp3" preload="auto"></audio>
-        <audio id="yes-sound" src="./sounds/yes-sound.mp3" preload="auto"></audio>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="./js/site.js"></script>
+
+
+    <script src="js/site.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const yesButton = document.getElementById('yes-button');
+    const noButton = document.getElementById('no-button');
+
+    // If user clicked retry on No page
+    if (localStorage.getItem('retryClicked') === 'true') {
+        yesButton.classList.add('broken-button');
+        noButton.classList.add('broken-button');
+
+        // Make No button dodge the cursor
+        noButton.addEventListener('mouseenter', () => {
+            const parentWidth = window.innerWidth - noButton.offsetWidth;
+            const parentHeight = window.innerHeight - noButton.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * parentWidth);
+            const randomY = Math.floor(Math.random() * parentHeight);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+
+        // Remove flag so it only triggers once
+        localStorage.removeItem('retryClicked');
+    }
+});
+</script>
+</body>
+</html>
+</body>
 </html>

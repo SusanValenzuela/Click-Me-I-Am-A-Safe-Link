@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yay! You Said Yes!</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Petals -->
+    <div class="petals-container"></div>
+
+    <div class="yes-container" id="yes-screen">
+        <h1>Yay! You Said Yes!</h1>
+        <p>Happy Valentine's Day, Bri!</p>
+        <p>I love you so much, thank you, for another year of happiness</p>
+        <p>You are so sigma, and I'm so glad you said yes!</p>
+        <img src="./images/hellokitty.jpg" alt="Hello Kitty" />
+    </div>
+
+    <!-- Audio -->
+    <audio id="yes-sound" src="./sounds/yes-sound.mp3" preload="auto"></audio>
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Petals and audio JS -->
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Play sound
+        const sound = document.getElementById('yes-sound');
+        sound.volume = 0.1;
+        sound.play().catch(() => console.log("Autoplay blocked."));
+
+        // Launch confetti
+        confetti();
+
+        // Petals
+        const petalsContainer = document.querySelector('.petals-container');
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petals');
+
+            // Random horizontal start
+            petal.style.left = Math.random() * window.innerWidth + 'px';
+            petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+
+            petalsContainer.appendChild(petal);
+
+            // Remove petals after falling
+            setTimeout(() => petal.remove(), 10000);
+        }
+
+        // Initial petals
+        for(let i = 0; i < 30; i++) createPetal();
+
+        // Continuous petals
+        setInterval(createPetal, 1000);
+    });
+    </script>
+</body>
+</html>
